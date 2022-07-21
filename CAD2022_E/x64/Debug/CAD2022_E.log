@@ -1,2 +1,13 @@
 ﻿  Application.cpp
+  Assembly.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Line.h(13,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\git-repos\CAD2022_E\CAD2022_E\src\Arc.h(14,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Base.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Line.h(13,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\git-repos\CAD2022_E\CAD2022_E\src\Arc.h(14,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Copper.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Line.h(13,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\git-repos\CAD2022_E\CAD2022_E\src\Arc.h(14,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Main.cpp
+  Generating Code...
   CAD2022_E.vcxproj -> D:\git-repos\CAD2022_E\x64\Debug\CAD2022_E.exe

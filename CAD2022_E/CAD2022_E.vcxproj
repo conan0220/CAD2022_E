@@ -128,10 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h" />
+    <ClInclude Include="src\Arc.h" />
     <ClInclude Include="src\Assembly.h" />
     <ClInclude Include="src\Base.h" />
+    <ClInclude Include="src\Copper.h" />
     <ClInclude Include="src\DataStructure\Vector.h" />
     <ClInclude Include="src\Line.h" />
+    <ClInclude Include="src\Math.h" />
     <ClInclude Include="src\Node.h" />
     <ClInclude Include="src\Text.h" />
     <ClInclude Include="src\Timer.h" />
@@ -140,7 +143,9 @@
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\Assembly.cpp" />
     <ClCompile Include="src\Base.cpp" />
+    <ClCompile Include="src\Copper.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Math.cpp" />
     <ClCompile Include="src\Text.cpp" />
   </ItemGroup>
   <ItemGroup>

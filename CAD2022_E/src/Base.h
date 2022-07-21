@@ -1,5 +1,9 @@
 #pragma once
-#include <iostream>
+
+#include "Line.h"
+#include "Arc.h"
+#include "DataStructure/Vector.h"
+
 
 class Base
 {
@@ -8,11 +12,15 @@ public:
 	Base() {}
 
 	// function
-	inline static float& GetAssemblygap() { return assemblygap; }
-	inline static float& GetCoppergap() { return coppergap; }
-	inline static float& GetSilkscreenlen() { return silkscreenlen; }
 
-protected:
+	// operator
+	void operator += (const Line& line);
+	void operator += (const Arc& arc);
+
+	// data
+	Vector<Line> lines;
+	Vector<Arc> arcs;
+
 	static float assemblygap;
 	static float coppergap;
 	static float silkscreenlen;
