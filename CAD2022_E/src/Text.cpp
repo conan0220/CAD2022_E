@@ -6,10 +6,10 @@
 
 Text::Text() {}
 
-Text::Text(const std::string file_path)
-	: file_path(file_path)
+Text::Text(const std::string filePath)
+	: filePath(filePath)
 {
-	ReadFile(file_path);
+	ReadFile(filePath);
 }
 
 Text::~Text() {}
@@ -26,22 +26,22 @@ const int& Text::FindCharacterIndex(const char& character, const int& line_index
 	return -1;
 }
 
-bool Text::IsStringInLine(const std::string& str_target, const int& line) const
+bool Text::IsStringInLine(const std::string& strTarget, const int& line) const
 {
-	return IsStringInString(text[line], str_target);
+	return IsStringInString(text[line], strTarget);
 }
 
-void Text::ReadFile(std::string file_path)
+void Text::ReadFile(std::string filePath)
 {
-	this->file_path = file_path;
-	std::ifstream file(file_path);
-	std::string line_text = "";
+	this->filePath = filePath;
+	std::ifstream file(filePath);
+	std::string lineText = "";
 	text.Resize(0);
 	if (file.is_open())
 	{
-		while (std::getline(file, line_text))
+		while (std::getline(file, lineText))
 		{
-			text += line_text;
+			text += lineText;
 		}
 	}
 	else
@@ -72,8 +72,8 @@ const int& Text::CharToInt(const char& ch) const
 
 const Vector<float>& Text::GetFloatInString(const std::string& str) const
 {
-	static Vector<float> float_arr;
-	float_arr.RemoveAll();
+	static Vector<float> floatArr;
+	floatArr.RemoveAll();
 	std::string temp = "";
 	for (int i = 0; i < str.size(); i++)
 	{
@@ -88,16 +88,16 @@ const Vector<float>& Text::GetFloatInString(const std::string& str) const
 		}
 		else if (!temp.empty())
 		{
-			float_arr += std::stof(temp);
+			floatArr += std::stof(temp);
 			temp.clear();
 		}
 	}
 	if (!temp.empty())
 	{
-		float_arr += std::stof(temp);
+		floatArr += std::stof(temp);
 		temp.clear();
 	}
-	return float_arr;
+	return floatArr;
 }
 
 const bool& Text::IsCharInt(const char& ch) const
@@ -105,7 +105,7 @@ const bool& Text::IsCharInt(const char& ch) const
 	return 48 <= static_cast<int>(ch) && static_cast<int>(ch) <= 57 ? true : false;
 }
 
-bool Text::IsStringInString(const std::string& str, const std::string& str_target) const
+bool Text::IsStringInString(const std::string& str, const std::string& strTarget) const
 {
-	return str.find(str_target) != std::string::npos;
+	return str.find(strTarget) != std::string::npos;
 }

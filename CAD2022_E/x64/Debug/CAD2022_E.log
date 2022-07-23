@@ -9,5 +9,10 @@ D:\git-repos\CAD2022_E\CAD2022_E\src\Arc.h(14,22): warning C4244: '=': conversio
 D:\git-repos\CAD2022_E\CAD2022_E\src\Line.h(13,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 D:\git-repos\CAD2022_E\CAD2022_E\src\Arc.h(14,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Main.cpp
+  Text.cpp
   Generating Code...
+D:\git-repos\CAD2022_E\CAD2022_E\src\Text.cpp(23): warning C4172: returning address of local variable or temporary: i
+D:\git-repos\CAD2022_E\CAD2022_E\src\Text.cpp(26): warning C4172: returning address of local variable or temporary
+D:\git-repos\CAD2022_E\CAD2022_E\src\Text.cpp(69): warning C4172: returning address of local variable or temporary
+D:\git-repos\CAD2022_E\CAD2022_E\src\Text.cpp(105): warning C4172: returning address of local variable or temporary
   CAD2022_E.vcxproj -> D:\git-repos\CAD2022_E\x64\Debug\CAD2022_E.exe

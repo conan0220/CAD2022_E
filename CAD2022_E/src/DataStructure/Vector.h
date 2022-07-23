@@ -6,7 +6,7 @@ template <typename T>
 class Vector
 {
 public:
-	// constructor
+	// constructor	
 	Vector(const int sz = 0);
 	~Vector() { delete[] self; }
 
@@ -40,7 +40,7 @@ private:
 	void AllocateMemory(const int& cap);
 	int CalculateCapacity(const int& sz) const;
 
-	void SubQuickSort(int left_index, int right_index);
+	void SubQuickSort(int leftIndex, int rightIndex);
 	void Swap(T& a, T& b);
 
 	// operator
@@ -165,13 +165,13 @@ void Vector<T>::QuickSort()
 }
 
 template <typename T>
-void Vector<T>::SubQuickSort(int left_index, int right_index)
+void Vector<T>::SubQuickSort(int leftIndex, int rightIndex)
 {
-	if (left_index >= 0 && right_index < size && right_index - left_index > 0)
+	if (leftIndex >= 0 && rightIndex < size && rightIndex - leftIndex > 0)
 	{
-		int i = left_index;
-		int j = right_index;
-		T standard = self[left_index];
+		int i = leftIndex;
+		int j = rightIndex;
+		T standard = self[leftIndex];
 
 		while (i != j)
 		{
@@ -187,11 +187,11 @@ void Vector<T>::SubQuickSort(int left_index, int right_index)
 				Swap(self[i], self[j]);
 			}
 		}
-		self[left_index] = self[i];
+		self[leftIndex] = self[i];
 		self[i] = standard;
 
-		SubQuickSort(left_index, i - 1);
-		SubQuickSort(i + 1, right_index);
+		SubQuickSort(leftIndex, i - 1);
+		SubQuickSort(i + 1, rightIndex);
 	}
 }
 

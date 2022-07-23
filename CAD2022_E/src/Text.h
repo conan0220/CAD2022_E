@@ -9,7 +9,7 @@ class Text
 public:
 	// constructor
 	Text();
-	Text(const std::string file_path);
+	Text(const std::string filePath);
 	~Text();
 
 	// useful function
@@ -19,7 +19,7 @@ public:
 
 	bool IsStringInLine(const std::string& str, const int& line) const;
 
-	void ReadFile(std::string file_path);	// read .txt file and write in the text
+	void ReadFile(std::string filePath);	// read .txt file and write in the text
 
 	void PushBack(const std::string& text);
 
@@ -33,8 +33,9 @@ private:
 	const Vector<float>& GetFloatInString(const std::string& str) const;
 
 	const bool& IsCharInt(const char& ch) const;	// is char int?
-	bool IsStringInString(const std::string& str, const std::string& str_target) const;
+	bool IsStringInString(const std::string& str, const std::string& strTarget) const;
 
-	std::string file_path = "";
+	// data
+	std::string filePath = "";
 	Vector<std::string> text = NULL;
 };
