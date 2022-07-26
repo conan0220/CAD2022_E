@@ -1,18 +1,12 @@
 ﻿  Application.cpp
-  Assembly.cpp
-D:\git-repos\CAD2022_E\CAD2022_E\src\Line.h(13,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\git-repos\CAD2022_E\CAD2022_E\src\Arc.h(14,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Base.cpp
-D:\git-repos\CAD2022_E\CAD2022_E\src\Line.h(13,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\git-repos\CAD2022_E\CAD2022_E\src\Arc.h(14,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Copper.cpp
-D:\git-repos\CAD2022_E\CAD2022_E\src\Line.h(13,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\git-repos\CAD2022_E\CAD2022_E\src\Arc.h(14,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Main.cpp
-  Text.cpp
-  Generating Code...
-D:\git-repos\CAD2022_E\CAD2022_E\src\Text.cpp(23): warning C4172: returning address of local variable or temporary: i
-D:\git-repos\CAD2022_E\CAD2022_E\src\Text.cpp(26): warning C4172: returning address of local variable or temporary
-D:\git-repos\CAD2022_E\CAD2022_E\src\Text.cpp(69): warning C4172: returning address of local variable or temporary
-D:\git-repos\CAD2022_E\CAD2022_E\src\Text.cpp(105): warning C4172: returning address of local variable or temporary
+D:\git-repos\CAD2022_E\CAD2022_E\src\Application.cpp(76,20): warning C4305: '=': truncation from 'double' to 'float'
+D:\git-repos\CAD2022_E\CAD2022_E\src\Application.cpp(152,25): warning C4305: '+=': truncation from 'double' to 'float'
+D:\git-repos\CAD2022_E\CAD2022_E\src\Application.cpp(154,25): warning C4305: '-=': truncation from 'double' to 'float'
+D:\git-repos\CAD2022_E\CAD2022_E\src\Application.cpp(156,31): warning C4305: '-=': truncation from 'double' to 'float'
+D:\git-repos\CAD2022_E\CAD2022_E\src\Application.cpp(158,31): warning C4305: '+=': truncation from 'double' to 'float'
+D:\git-repos\CAD2022_E\CAD2022_E\src\Application.cpp(160,31): warning C4305: '-=': truncation from 'double' to 'float'
+D:\git-repos\CAD2022_E\CAD2022_E\src\Application.cpp(162,31): warning C4305: '+=': truncation from 'double' to 'float'
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'D:\git-repos\CAD2022_E\x64\Debug\vc120.pdb'; linking object as if no debug info
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   CAD2022_E.vcxproj -> D:\git-repos\CAD2022_E\x64\Debug\CAD2022_E.exe

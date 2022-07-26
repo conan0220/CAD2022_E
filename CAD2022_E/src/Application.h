@@ -14,6 +14,12 @@ public:
 private:
 	// function
 	void ProcessInput();
+	void Render();
+
+	void RenderAssembly() const;
+	void RenderCopper() const;
+
+	void GetKeyEvent();
 
 	inline bool IsAssemblygap(const int& line) const;
 	inline bool IsCoppergap(const int& line) const;

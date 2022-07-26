@@ -2,6 +2,12 @@
 #include "Base.h"
 #include "Timer.h"
 #include "Arc.h"
+#include "Render.h"
+
+#include <thread>
+#include <conio.h>
+
+static bool isRenderRunning = true;
 
 Application::Application()
 {
@@ -12,6 +18,8 @@ Application::Application()
 	input.ReadFile(filepath);
 
 	ProcessInput();
+	std::thread ThreadRender(&Application::Render, this);
+	ThreadRender.join();
 }
 
 void Application::ProcessInput()
@@ -60,6 +68,103 @@ void Application::ProcessInput()
 		}
 		
 		
+	}
+}
+
+void Application::Render() 
+{
+	GetScaling() = 0.1;
+	std::thread ThreadGetKeyEvent(&Application::GetKeyEvent, this);
+	ThreadGetKeyEvent.detach();
+
+	GLFWwindow* window;
+
+	/* Initialize the library */
+	if (!glfwInit())
+	{
+		std::cerr << "[Error]: Failed to init";
+		exit(EXIT_FAILURE);
+	}
+
+	/* Create a windowed mode window and its OpenGL context */
+	window = glfwCreateWindow(720, 680, "Hello World", NULL, NULL);
+	if (!window)
+	{
+		glfwTerminate();
+		exit(EXIT_FAILURE);
+	}
+
+	/* Make the window's context current */
+	glfwMakeContextCurrent(window);
+
+	if (glewInit() != GLEW_OK)
+		std::cerr << "Error!" << std::endl;
+
+	/* Loop until the user closes the window */
+	while (!glfwWindowShouldClose(window) && isRenderRunning)
+	{
+
+		/* Render here */
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		RenderAssembly();
+		RenderCopper();
+
+		/* Swap front and back buffers */
+		glfwSwapBuffers(window);
+
+		/* Poll for and process events */
+		glfwPollEvents();
+	}
+
+	glfwTerminate();
+}
+
+void Application::RenderAssembly() const
+{
+	for (const Line& line : assembly.lines)
+	{
+		RenderLine(line.n1, line.n2);
+	}
+}
+
+void Application::RenderCopper() const
+{
+	for (const auto& copper : coppers)
+	{
+		for (const Line& line : copper.lines)
+		{
+			RenderLine(line.n1, line.n2);
+		}
+	}
+}
+
+void Application::GetKeyEvent()
+{
+	int ch;
+	while (true)
+	{
+		if (_kbhit())
+		{
+			ch = _getch();
+			//std::cout << ch << std::endl;
+			if (ch == 61)						// plus
+				GetScaling() += 0.01;
+			else if (ch == 45)					// minus
+				GetScaling() -= 0.01;
+			else if (ch == 72)					// up
+				GetYDisplacement() -= 0.05;
+			else if (ch == 80)					// down
+				GetYDisplacement() += 0.05;
+			else if (ch == 77)					// right
+				GetXDisplacement() -= 0.05;
+			else if (ch == 75)					// left
+				GetXDisplacement() += 0.05;
+			else if (ch == 27)					// ESC
+				isRenderRunning = false;
+		}
+		if (!isRenderRunning)
+			break;
 	}
 }
 
