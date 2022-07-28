@@ -87,7 +87,7 @@ void Application::Render()
 	}
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(720, 680, "Hello World", NULL, NULL);
+	window = glfwCreateWindow(720, 720, "Canvas", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -126,19 +126,28 @@ void Application::RenderAssembly() const
 	{
 		RenderLine(line.n1, line.n2);
 	}
+	for (const Arc& arc : assembly.arcs)
+	{
+		RenderArc(arc.center, arc.radius, CalculateAngle(arc.center, arc.n1), CalculateAngle(arc.center, arc.n2), arc.direction, 1300);
+	}
 }
 
 void Application::RenderCopper() const
 {
-	for (const auto& copper : coppers)
+	for (const Copper& copper : coppers)
 	{
 		for (const Line& line : copper.lines)
 		{
 			RenderLine(line.n1, line.n2);
 		}
+		for (const Arc& arc : copper.arcs)
+		{
+			RenderArc(arc.center, arc.radius, CalculateAngle(arc.center, arc.n1), CalculateAngle(arc.center, arc.n2), arc.direction, 1300);
+		}
 	}
 }
 
+/*	drop displacement velocity by scaling elevate	*/
 void Application::GetKeyEvent()
 {
 	int ch;
@@ -148,19 +157,19 @@ void Application::GetKeyEvent()
 		{
 			ch = _getch();
 			//std::cout << ch << std::endl;
-			if (ch == 61)						// plus
-				GetScaling() += 0.01;
-			else if (ch == 45)					// minus
-				GetScaling() -= 0.01;
-			else if (ch == 72)					// up
-				GetYDisplacement() -= 0.05;
-			else if (ch == 80)					// down
-				GetYDisplacement() += 0.05;
-			else if (ch == 77)					// right
-				GetXDisplacement() -= 0.05;
-			else if (ch == 75)					// left
-				GetXDisplacement() += 0.05;
-			else if (ch == 27)					// ESC
+			if (ch == 61)								// plus
+				GetScaling() *= 1.1;
+			else if (ch == 45)							// minus
+				GetScaling() *= 0.9;
+			else if (ch == 72)							// up
+				GetYDisplacement() -= .1 / GetScaling();
+			else if (ch == 80)							// down
+				GetYDisplacement() += .1 / GetScaling();
+			else if (ch == 77)							// right
+				GetXDisplacement() -= .1 / GetScaling();
+			else if (ch == 75)							// left
+				GetXDisplacement() += .1 / GetScaling();
+			else if (ch == 27)							// ESC
 				isRenderRunning = false;
 		}
 		if (!isRenderRunning)
