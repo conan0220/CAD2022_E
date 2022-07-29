@@ -19,4 +19,4 @@ void RenderArc(const Node& center, float r, float startAngle, float endAngle, bo
 
 float CalculateAngle(const Node& center, const Node& n);
 
-float CalArcAngle(const float startAngle, const float endAngle);
+float CalculateArcAngle(const float startAngle, const float endAngle);

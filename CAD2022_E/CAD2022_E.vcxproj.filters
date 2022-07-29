@@ -51,6 +51,9 @@
     <ClInclude Include="src\Render.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Silkscreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -77,9 +80,13 @@
     <ClCompile Include="src\Render.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Silkscreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="res\Problem.txt" />
-    <Text Include="res\Problem2.txt" />
+    <Text Include="res\Input\Problem.txt" />
+    <Text Include="res\Input\Problem2.txt" />
+    <Text Include="res\Output\Result.txt" />
   </ItemGroup>
 </Project>

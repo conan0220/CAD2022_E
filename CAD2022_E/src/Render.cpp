@@ -19,7 +19,7 @@ void RenderLine(const Node& n1, const Node& n2)
 
 void RenderArc(const Node& center, float r, float startAngle, float endAngle, bool direction, int numSegments)
 {
-    float arcAngle = CalArcAngle(startAngle, endAngle);
+    float arcAngle = CalculateArcAngle(startAngle, endAngle);
     if (direction)
     {
         startAngle = endAngle;
@@ -65,17 +65,17 @@ float CalculateAngle(const Node& center, const Node& n)
 
     if (x >= 0 && y >= 0)             // first quadrant
         angle = angle;
-    else if (x < 0 && y >= 0)        // second quadrant
+    else if (x < 0 && y >= 0)         // second quadrant
         angle = pi - angle;
-    else if (x < 0 && y < 0)        // third quadrant
-        angle += 180;
+    else if (x < 0 && y < 0)         // third quadrant
+        angle += pi;
     else if (x >= 0 && y < 0)        // forth quadrant
         angle = 2 * pi - angle;
 
     return angle;
 }
 
-float CalArcAngle(const float startAngle, const float endAngle)
+float CalculateArcAngle(const float startAngle, const float endAngle)
 {
     float angle = abs(endAngle - startAngle);
     if (angle <= 2 * pi - angle)
