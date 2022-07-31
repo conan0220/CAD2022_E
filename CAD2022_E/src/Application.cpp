@@ -2,21 +2,19 @@
 #include "Base.h"
 #include "Timer.h"
 #include "Arc.h"
+#include "Event.h"
+#include "Control.h"
+#include "Camera.h"
 
 #include <thread>
 #include <conio.h>
 
-static bool isRenderRunning = true;
 
-struct Display
-{
-	bool Assembly = true;
-	bool Copper = true;
-	bool Silkscreen = true;
-} display;
 
 Application::Application()
 {
+	Running::isRenderRunning = true;
+
 	std::string filePath;
 	std::cout << "input filepath: ";
 	std::cin >> filePath;
@@ -140,7 +138,9 @@ void Application::ReadExistOutputFile()
 void Application::Render() 
 {
 	GLFWwindow* window;
-	
+
+	Camera::scaling = 0.1;
+
 	/* Initialize the library */
 	if (!glfwInit()) 
 	{
@@ -156,12 +156,9 @@ void Application::Render()
 		exit(EXIT_FAILURE);
 	}
 
-	GetScaling() = 0.1;
+	KeyEvent(window);
 
-	std::thread ThreadKeyEvent(&Application::KeyEvent, this, window);
-	ThreadKeyEvent.detach();
-
-	std::thread ThreadCommandEvent(&Application::CommandEvent, this);
+	std::thread ThreadCommandEvent(CommandEvent);
 	ThreadCommandEvent.detach();
 
 	/* Make the window's context current */
@@ -171,15 +168,17 @@ void Application::Render()
 		std::cerr << "Error!" << std::endl;
 
 	/* Loop until the user closes the window */
-	while (!glfwWindowShouldClose(window) && isRenderRunning)
+	while (!glfwWindowShouldClose(window) && Running::isRenderRunning)
 	{
 
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		RenderAssembly(display.Assembly);
-		RenderCopper(display.Copper);
-		RenderSilkscreen(display.Silkscreen);
+		RenderAssembly(Display::assembly);
+		RenderCopper(Display::copper);
+		RenderSilkscreen(Display::silkscreen);
+		RenderCoordinate(Display::coordinate);
+		Camera::Render();
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
@@ -248,65 +247,9 @@ void Application::RenderSilkscreen(bool display) const
 	}
 }
 
-/*	drop displacement velocity by scaling elevate	*/
-void Application::KeyEvent(GLFWwindow* window)
+void Application::RenderCoordinate(bool display) const
 {
-	glfwSetKeyCallback(window, KeyCallBack);
-}
 
-void Application::CommandEvent()
-{
-	std::string command = "";
-	while (true)
-	{
-		std::cout << "[cmd]: ";
-		std::cin >> command;
-		if (command == "assembly_off")
-			display.Assembly = false;
-		else if (command == "assembly_on")
-			display.Assembly = true;
-		else if (command == "copper_off")
-			display.Copper = false;
-		else if (command == "copper_on")
-			display.Copper = true;
-		else if (command == "silkscreen_off")
-			display.Silkscreen = false;
-		else if (command == "silkscreen_on")
-			display.Silkscreen = true;
-		else if (command == "end")
-		{
-			isRenderRunning = false;
-			break;
-		}
-		else
-		{
-			std::cout << "[Error]: Wrong command" << std::endl;
-		}
-		std::cout << std::endl;
-	}
-}
-
-void Application::KeyCallBack(GLFWwindow* window, int key, int scanCode, int action, int mods)
-{
-	//std::cout << key << std::endl;
-	if (action == GLFW_PRESS || action == GLFW_REPEAT)
-	{
-		if (key == GLFW_KEY_MINUS)
-			GetScaling() *= 0.9f;
-		else if (key == GLFW_KEY_EQUAL)
-			GetScaling() *= 1.1f;
-		else if (key == GLFW_KEY_UP)
-			GetYDisplacement() -= .1f / GetScaling();
-		else if (key == GLFW_KEY_DOWN)
-			GetYDisplacement() += .1f / GetScaling();
-		else if (key == GLFW_KEY_LEFT)
-			GetXDisplacement() += .1f / GetScaling();
-		else if (key == GLFW_KEY_RIGHT)
-			GetXDisplacement() -= .1f / GetScaling();
-		else if (key == GLFW_KEY_ESCAPE)
-			isRenderRunning = false;
-	}
-	
 }
 
 inline bool Application::IsAssemblygap(const int& line, const Text& text) const

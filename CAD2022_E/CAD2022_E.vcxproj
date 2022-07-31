@@ -108,7 +108,6 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -126,7 +125,6 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLEW\include;$(SolutionDir)Dependencies\GLFW\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -141,6 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\Control.h" />
+    <ClInclude Include="src\Event.h" />
     <ClInclude Include="src\Silkscreen.h" />
     <ClInclude Include="src\Render.h" />
     <ClInclude Include="src\Application.h" />
@@ -156,6 +157,9 @@
     <ClInclude Include="src\Timer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\Control.cpp" />
+    <ClCompile Include="src\Event.cpp" />
     <ClCompile Include="src\Silkscreen.cpp" />
     <ClCompile Include="src\Render.cpp" />
     <ClCompile Include="src\Application.cpp" />
@@ -167,8 +171,8 @@
     <ClCompile Include="src\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="res\Input\Problem.txt" />
-    <Text Include="res\Input\Problem2.txt" />
+    <Text Include="res\Input\ProblemA.txt" />
+    <Text Include="res\Input\ProblemB.txt" />
     <Text Include="res\Output\Result.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

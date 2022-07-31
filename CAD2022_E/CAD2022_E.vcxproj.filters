@@ -54,6 +54,15 @@
     <ClInclude Include="src\Silkscreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Control.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -83,10 +92,19 @@
     <ClCompile Include="src\Silkscreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Control.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="res\Input\Problem.txt" />
-    <Text Include="res\Input\Problem2.txt" />
+    <Text Include="res\Input\ProblemA.txt" />
+    <Text Include="res\Input\ProblemB.txt" />
     <Text Include="res\Output\Result.txt" />
   </ItemGroup>
 </Project>

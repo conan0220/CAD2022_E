@@ -1,6 +1,10 @@
 ﻿#include "Application.h"
+#include "Render.h"
 
 int main()
 {
-	Application app;
+	while (true)
+	{
+		Application app;
+	}
 }

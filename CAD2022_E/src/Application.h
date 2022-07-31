@@ -4,9 +4,6 @@
 #include "Assembly.h"
 #include "Copper.h"
 #include "Silkscreen.h"
-#include "Render.h"
-
-
 
 class Application
 {
@@ -27,11 +24,7 @@ private:
 	void RenderAssembly(bool display) const;
 	void RenderCopper(bool display) const;
 	void RenderSilkscreen(bool display) const;
-
-	void KeyEvent(GLFWwindow* window);
-	void CommandEvent();
-
-	static void KeyCallBack(GLFWwindow* window, int key, int scanCode, int action, int mods);
+	void RenderCoordinate(bool display) const;
 
 	inline bool IsAssemblygap(const int& line, const Text& text) const;
 	inline bool IsCoppergap(const int& line, const Text& text) const;

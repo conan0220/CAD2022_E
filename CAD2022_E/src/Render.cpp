@@ -1,31 +1,37 @@
 #include "Render.h"
 #include "Math.h"
+#include "Camera.h"
 
 #include <iostream>
 
-float& GetScaling() { return scaling; }
-
-float& GetXDisplacement() { return xDisplacement; }
-
-float& GetYDisplacement() { return yDisplacement; }
+void RenderPoint(const Node& n)
+{
+    glBegin(GL_POINTS);
+    glVertex2f((n.x - Camera::x) * Camera::scaling, (n.y - Camera::y) * Camera::scaling);
+    glEnd();
+}
 
 void RenderLine(const Node& n1, const Node& n2)
 {
     glBegin(GL_LINES);
-    glVertex2f((n1.x + xDisplacement) * scaling, (n1.y + yDisplacement) * scaling);
-    glVertex2f((n2.x + xDisplacement) * scaling, (n2.y + yDisplacement) * scaling);
+    glVertex2f((n1.x - Camera::x) * Camera::scaling, (n1.y - Camera::y) * Camera::scaling);
+    glVertex2f((n2.x - Camera::x) * Camera::scaling, (n2.y - Camera::y) * Camera::scaling);
     glEnd();
 }
 
 void RenderArc(const Node& center, float r, float startAngle, float endAngle, bool direction, int numSegments)
 {
     float arcAngle = CalculateArcAngle(startAngle, endAngle);
-    if (direction)
+ 
+    if (startAngle == endAngle)
+    {
+        arcAngle = 2 * pi;
+    }
+    else if (direction)
     {
         startAngle = endAngle;
-        arcAngle = 2 * pi - arcAngle;
     }
-    
+
     float theta = arcAngle / float(numSegments - 1);//theta is now calculated from the arc angle instead, the - 1 bit comes from the fact that the arc is open
 
     float tangetial_factor = tanf(theta);
@@ -39,7 +45,7 @@ void RenderArc(const Node& center, float r, float startAngle, float endAngle, bo
     glBegin(GL_LINE_STRIP);//since the arc is not a closed curve, this is a strip now
     for (int ii = 0; ii < numSegments; ii++)
     {
-        glVertex2f((x + center.x + xDisplacement) * scaling, (y + center.y + yDisplacement) * scaling);
+        glVertex2f((x + center.x - Camera::x) * Camera::scaling, (y + center.y - Camera::y) * Camera::scaling);
 
         float tx = -y;
         float ty = x;
@@ -51,6 +57,11 @@ void RenderArc(const Node& center, float r, float startAngle, float endAngle, bo
         y *= radial_factor;
     }
     glEnd();
+}
+
+void RenderText(const std::string text, const float x, const float y)
+{
+
 }
 
 float CalculateAngle(const Node& center, const Node& n)
@@ -78,8 +89,10 @@ float CalculateAngle(const Node& center, const Node& n)
 float CalculateArcAngle(const float startAngle, const float endAngle)
 {
     float angle = abs(endAngle - startAngle);
+ 
     if (angle <= 2 * pi - angle)
         return angle;
     else
         return 2 * pi - angle;
 }
+
