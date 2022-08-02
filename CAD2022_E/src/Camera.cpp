@@ -21,9 +21,7 @@ void Camera::RenderAim(bool display)
 		glBegin(GL_LINES);
 		glVertex2f(-.05f, 0.0f);
 		glVertex2f(.05f, 0.0f);
-		//glEnd();
 
-		//glBegin(GL_LINES);
 		glVertex2f(0.0f, -.05f);
 		glVertex2f(0.0f, .05f);
 		glEnd();

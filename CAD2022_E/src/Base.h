@@ -4,14 +4,15 @@
 #include "Arc.h"
 #include "DataStructure/Vector.h"
 
-
 class Base
 {
 public:
 	// constructor
 	Base() {}
 
-	// function
+	// function	
+	float CalculateArea() const;
+	float CalculateDeterminant(const Node& n1, const Node& n2) const;
 
 	// operator
 	void operator += (const Line& line);
@@ -21,9 +22,13 @@ public:
 	Vector<Line> lines;
 	Vector<Arc> arcs;
 
+	bool isLineFirst = true;
+	
 	static float assemblygap;
 	static float coppergap;
 	static float silkscreenlen;
+
+	
 
 private:
 

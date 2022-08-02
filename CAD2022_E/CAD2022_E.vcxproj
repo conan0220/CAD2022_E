@@ -157,9 +157,11 @@
     <ClInclude Include="src\Timer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Arc.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Control.cpp" />
     <ClCompile Include="src\Event.cpp" />
+    <ClCompile Include="src\Node.cpp" />
     <ClCompile Include="src\Silkscreen.cpp" />
     <ClCompile Include="src\Render.cpp" />
     <ClCompile Include="src\Application.cpp" />

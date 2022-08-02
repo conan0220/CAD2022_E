@@ -1,2 +1,23 @@
-﻿  Event.cpp
+﻿  Application.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Math.h(7,57): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\git-repos\CAD2022_E\CAD2022_E\src\Application.cpp(159,23): warning C4305: '=': truncation from 'double' to 'float'
+  Arc.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Math.h(7,57): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Assembly.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Math.h(7,57): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Base.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Math.h(7,57): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Camera.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Math.h(7,57): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Copper.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Math.h(7,57): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Event.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Math.h(7,57): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Main.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Math.h(7,57): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Render.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Math.h(7,57): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Silkscreen.cpp
+D:\git-repos\CAD2022_E\CAD2022_E\src\Math.h(7,57): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Generating Code...
   CAD2022_E.vcxproj -> D:\git-repos\CAD2022_E\x64\Debug\CAD2022_E.exe

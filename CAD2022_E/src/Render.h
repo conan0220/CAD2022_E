@@ -1,5 +1,6 @@
 #pragma once
 #include "Node.h"
+#include "Arc.h"
 
 #include <iostream>
 
@@ -11,10 +12,7 @@ void RenderPoint(const Node& n);
 
 void RenderLine(const Node& n1, const Node& n2);
 
-void RenderArc(const Node& center, float r, float startAngle, float endAngle, bool direction, int numSegments);
+void RenderArc(const Arc& arc, int numSegments);
 
 void RenderText(const std::string text, const float x, const float y);
 
-float CalculateAngle(const Node& center, const Node& n);
-
-float CalculateArcAngle(const float startAngle, const float endAngle);

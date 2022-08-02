@@ -24,7 +24,6 @@ private:
 	void RenderAssembly(bool display) const;
 	void RenderCopper(bool display) const;
 	void RenderSilkscreen(bool display) const;
-	void RenderCoordinate(bool display) const;
 
 	inline bool IsAssemblygap(const int& line, const Text& text) const;
 	inline bool IsCoppergap(const int& line, const Text& text) const;
