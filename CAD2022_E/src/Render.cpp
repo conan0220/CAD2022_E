@@ -21,12 +21,6 @@ void RenderLine(const Node& n1, const Node& n2)
 
 void RenderArc(const Arc& arc, int numSegments)
 {
-    //float arcAngle = CalculateArcAngle(startAngle, endAngle);
- 
-    /*if (startAngle == endAngle)
-    {
-        arcAngle = 2 * math::pi;
-    }*/
     float startAngle = arc.startAngle;
     if (arc.direction)
     {

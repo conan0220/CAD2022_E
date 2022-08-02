@@ -112,5 +112,6 @@
     <Text Include="res\Input\ProblemA.txt" />
     <Text Include="res\Input\ProblemB.txt" />
     <Text Include="res\Output\Result.txt" />
+    <Text Include="res\Input\test.txt" />
   </ItemGroup>
 </Project>

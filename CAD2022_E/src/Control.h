@@ -3,6 +3,7 @@
 struct Running
 {
 	static bool isRenderRunning;
+	static bool isGetCursorPosOn;
 };
 
 struct Display

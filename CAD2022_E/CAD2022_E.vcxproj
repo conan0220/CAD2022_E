@@ -175,6 +175,7 @@
   <ItemGroup>
     <Text Include="res\Input\ProblemA.txt" />
     <Text Include="res\Input\ProblemB.txt" />
+    <Text Include="res\Input\test.txt" />
     <Text Include="res\Output\Result.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,6 +1,7 @@
 #include "Control.h"
 
 bool Running::isRenderRunning = true;
+bool Running::isGetCursorPosOn = false;
 
 bool Display::assembly = true;
 bool Display::copper = true;

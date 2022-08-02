@@ -8,6 +8,9 @@
 #include <GLEW/glew.h>
 #include <GLFW/glfw3.h>
 
+static int windowWidth = 720;
+static int windowHeight = 720;
+
 void RenderPoint(const Node& n);
 
 void RenderLine(const Node& n1, const Node& n2);

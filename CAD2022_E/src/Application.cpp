@@ -19,10 +19,9 @@ Application::Application()
 	input.ReadFile(filePath);
 
 	ProcessInput();
-	std::cout << assembly.CalculateArea();
 	//ProcessOutput();
 	//GenerateOutput();
-	ReadExistOutputFile();
+	//ReadExistOutputFile();
 	std::thread ThreadRender(&Application::Render, this);
 	ThreadRender.join();
 }
@@ -166,7 +165,7 @@ void Application::Render()
 	}
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(720, 720, "Canvas", NULL, NULL);
+	window = glfwCreateWindow(windowWidth, windowHeight, "Canvas", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -174,6 +173,8 @@ void Application::Render()
 	}
 
 	KeyEvent(window);
+	MouseButtonEvent(window);
+	CursorPositionEvent(window);
 
 	std::thread ThreadCommandEvent(CommandEvent);
 	ThreadCommandEvent.detach();

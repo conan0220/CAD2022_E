@@ -10,6 +10,16 @@ void KeyEvent(GLFWwindow* window)
 	glfwSetKeyCallback(window, KeyCallBack);
 }
 
+void MouseButtonEvent(GLFWwindow* window)
+{
+	glfwSetMouseButtonCallback(window, MouseButtonCallBack);
+}
+
+void CursorPositionEvent(GLFWwindow* window)
+{
+	glfwSetCursorPosCallback(window, CursorPositionCallBack);
+}
+
  /*	it would be best to use thread	*/
 void CommandEvent()
 {
@@ -42,6 +52,10 @@ void CommandEvent()
 			std::cout << "camera.y: " << Camera::y << std::endl;
 		else if (command == "get.camera.velocity")
 			std::cout << "camera.velocity: " << Camera::velocity << std::endl;
+		else if (command == "get.cursor.pos.off")
+			Running::isGetCursorPosOn = false;
+		else if (command == "get.cursor.pos.on")
+			Running::isGetCursorPosOn = true;
 		else if (command == "modify.camera.scaling")
 		{
 			std::cout << "camera.scaling --> ";
@@ -77,7 +91,7 @@ void CommandEvent()
 		{
 			std::cout << "Legal command -->" << std::endl << std::endl;
 			std::cout << "1. assembly.off | assembly.on | copper.off | copper.on | silkscreen.off | silkscreen.on | camera.off | camera.on" << std::endl << std::endl;
-			std::cout << "2. get.camera.scaling | get.camera.x | get.camera.y | get.camera.velocity" << std::endl << std::endl;
+			std::cout << "2. get.camera.scaling | get.camera.x | get.camera.y | get.camera.velocity | get.cursor.pos.off | get.cursor.pos.on" << std::endl << std::endl;
 			std::cout << "3. modify.camera.scaling | modify.camera.x | modify.camera.y | modify.camera.velocity" << std::endl << std::endl;
 			std::cout << "4. init.camera" << std::endl << std::endl;
 			std::cout << "5. close" << std::endl;
@@ -109,6 +123,22 @@ void KeyCallBack(GLFWwindow* window, int key, int scanCode, int action, int mods
 			Camera::x += Camera::velocity / Camera::scaling;
 		else if (key == GLFW_KEY_ESCAPE)
 			Running::isRenderRunning = false;
-	}
+	} 
 
 }
+
+void MouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
+{
+	if (action == GLFW_PRESS && Running::isGetCursorPosOn)
+	{
+		std::cout << std::endl << "cursor.x: " << math::Rounding(cursorX, 4) << std::endl;
+		std::cout << "cursor.y: " << math::Rounding(cursorY, 4) << std::endl << std::endl << "[cmd]: ";
+	}
+}
+
+void CursorPositionCallBack(GLFWwindow* window, double xpos, double ypos)
+{
+	cursorX = (xpos / windowWidth * 2 - 1) / Camera::scaling + Camera::x;
+	cursorY = (ypos / windowHeight * 2 - 1) / Camera::scaling * -1 + Camera::y;
+}
+
