@@ -8,6 +8,7 @@
 
 #include <thread>
 
+
 Application::Application()
 {
 	Running::isRenderRunning = true;
@@ -21,7 +22,7 @@ Application::Application()
 	ProcessInput();
 	//ProcessOutput();
 	//GenerateOutput();
-	//ReadExistOutputFile();
+	ReadExistOutputFile();
 	std::thread ThreadRender(&Application::Render, this);
 	ThreadRender.join();
 }

@@ -1,5 +1,4 @@
-﻿  Event.cpp
+﻿  Application.cpp
 D:\git-repos\CAD2022_E\CAD2022_E\src\Math.h(7,57): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\git-repos\CAD2022_E\CAD2022_E\src\Event.cpp(141,59): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\git-repos\CAD2022_E\CAD2022_E\src\Event.cpp(142,65): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\git-repos\CAD2022_E\CAD2022_E\src\Application.cpp(159,23): warning C4305: '=': truncation from 'double' to 'float'
   CAD2022_E.vcxproj -> D:\git-repos\CAD2022_E\x64\Debug\CAD2022_E.exe
