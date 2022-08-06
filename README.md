@@ -23,7 +23,7 @@ open Project Property -> Additional Include Directories -> Edit...
 
 ![Screenshot](https://user-images.githubusercontent.com/100282257/182866068-8a6bccda-1185-4b66-9236-3d711e063a5f.png)
 
-Type the following directory
+Type the following directories
 * $(SolutionDir)Dependencies\GLEW\include
 * $(SolutionDir)Dependencies\GLFW\include
 
@@ -34,7 +34,7 @@ Linker -> General -> Additional Library Directories -> Edit...
 
 ![Screenshot](https://user-images.githubusercontent.com/100282257/182879987-05ffeaee-22be-42e9-a021-a99b362b54af.png)
 
-Type the following directory
+Type the following directories
 * $(SolutionDir)Dependencies\GLEW\lib\x64
 * $(SolutionDir)Dependencies\GLFW\lib
 
@@ -45,7 +45,7 @@ Linker -> Input -> Additional Dependencies -> Edit... -> remove default dependen
 
 ![Screenshot](https://user-images.githubusercontent.com/100282257/182881732-881a9cf7-ba52-44a6-b178-900d617edcad.png)
 
-Type the following directory
+Type the following dependencies
 * glew32s.lib
 * glfw3.lib
 * opengl32.lib
