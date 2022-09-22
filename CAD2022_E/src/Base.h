@@ -11,7 +11,6 @@ public:
 	Base() {}
 
 	// function	
-	float CalculateArea() const;
 	float CalculateDeterminant(const Node& n1, const Node& n2) const;
 
 	// operator
@@ -22,14 +21,10 @@ public:
 	Vector<Line> lines;
 	Vector<Arc> arcs;
 
-	bool isLineFirst = true;
-	
 	static float assemblygap;
 	static float coppergap;
 	static float silkscreenlen;
-
 	
-
 private:
 
 };

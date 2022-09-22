@@ -20,7 +20,6 @@ Application::Application()
 	input.ReadFile(filePath);
 
 	ProcessInput();
-	std::cout << "Assembly area: " << assembly.CalculateArea() << std::endl;
 	//ProcessOutput();
 	//GenerateOutput();
 	ReadExistOutputFile();
@@ -41,14 +40,10 @@ void Application::ProcessInput()
 			const Vector<float>& temp = input.GetFloatInLine(i);
 			if (present == 1)
 			{
-				if (coppers[coppers.GetSize() - 1].lines.GetSize() == 0 && coppers[coppers.GetSize() - 1].arcs.GetSize() == 0)
-					coppers[coppers.GetSize() - 1].isLineFirst = true;
 				coppers[coppers.GetSize() - 1] += Line(Node(temp[0], temp[1]), Node(temp[2], temp[3]));
 			}
 			else if (present == 0)
 			{
-				if (assembly.lines.GetSize() == 0 && assembly.arcs.GetSize() == 0)
-					assembly.isLineFirst = true;
 				assembly += Line(Node(temp[0], temp[1]), Node(temp[2], temp[3]));
 			}
 				
@@ -58,14 +53,10 @@ void Application::ProcessInput()
 			const Vector<float>& temp = input.GetFloatInLine(i);
 			if (present == 1)
 			{
-				if (coppers[coppers.GetSize() - 1].lines.GetSize() == 0 && coppers[coppers.GetSize() - 1].arcs.GetSize() == 0)
-					coppers[coppers.GetSize() - 1].isLineFirst = false;
 				coppers[coppers.GetSize() - 1] += Arc(Node(temp[0], temp[1]), Node(temp[2], temp[3]), Node(temp[4], temp[5]), !IsCounterClockwise(i, input));
 			}
 			else if (present == 0)
 			{
-				if (assembly.lines.GetSize() == 0 && assembly.arcs.GetSize() == 0)
-					assembly.isLineFirst = false;
 				assembly += Arc(Node(temp[0], temp[1]), Node(temp[2], temp[3]), Node(temp[4], temp[5]), !IsCounterClockwise(i, input));
 			}
 				
