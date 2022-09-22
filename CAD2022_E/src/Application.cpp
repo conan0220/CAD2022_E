@@ -20,6 +20,7 @@ Application::Application()
 	input.ReadFile(filePath);
 
 	ProcessInput();
+	std::cout << "Assembly area: " << assembly.CalculateArea() << std::endl;
 	//ProcessOutput();
 	//GenerateOutput();
 	ReadExistOutputFile();
@@ -90,7 +91,6 @@ void Application::ProcessInput()
 		{
 			Base::silkscreenlen = input.GetFloatInLine(i)[0];
 		}
-		
 		
 	}
 }

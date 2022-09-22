@@ -1,5 +1,4 @@
 ﻿#include "Application.h"
-#include "Render.h"
 
 int main()
 {
